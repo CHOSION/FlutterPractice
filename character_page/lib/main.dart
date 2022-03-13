@@ -17,7 +17,7 @@ class Grade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple[400],
+      backgroundColor: Colors.deepPurple[300],
       appBar: AppBar(
         title: Text('POKEMON'),
         // 색상
@@ -134,7 +134,7 @@ class Grade extends StatelessWidget {
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/Garchomp.png'),
                 radius: 90.0,
-                backgroundColor: Colors.deepPurple[400],
+                backgroundColor: Colors.deepPurple[300],
               ),
             )
           ],
