@@ -44,12 +44,22 @@ class MyPage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-            currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage('assets/Tyranitar.png'),
-              backgroundColor: Colors.blue[200],
-            ),
-                accountName: Text('Tyranitar'),
-                accountEmail: Text('tyranitar_248@pokemon.go'),
+              currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage('assets/Salamence.png'),
+                  backgroundColor: Colors.blue[200],
+                ),
+                otherAccountsPictures: <Widget>[
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/Tyranitar.png'),
+                    backgroundColor: Colors.blue[200],
+                  ),
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/Garchomp.png'),
+                    backgroundColor: Colors.blue[200],
+                  ),
+                ],
+                accountName: Text('Salamence'),
+                accountEmail: Text('salamence_373@pokemon.go'),
                 onDetailsPressed: () {
                   print('arrow is clicked.');
                 },
@@ -60,7 +70,37 @@ class MyPage extends StatelessWidget {
                   bottomRight: Radius.circular(40.0)
                 )
               ),
-            )
+            ),
+            ListTile(
+              leading: Icon(Icons.home,
+                color: Colors.grey[850],
+              ),
+              title: Text('Home'),
+              onTap: () {
+                print('Home button is clicked.');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings,
+                color: Colors.grey[850],
+              ),
+              title: Text('Settings'),
+              onTap: () {
+                print('Setting button is clicked.');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(Icons.question_answer,
+                color: Colors.grey[850],
+              ),
+              title: Text('Q&A'),
+              onTap: () {
+                print('Q&A button is clicked.');
+              },
+              trailing: Icon(Icons.add),
+            ),
           ],
         ),
       ),
