@@ -24,12 +24,6 @@ class MyPage extends StatelessWidget {
         title: Text('Appbar Icon Menu'),
         centerTitle: true,
         elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(Icons.menu), // menu icon
-          onPressed: () { // button pressed -> 반환값 없다
-            print('Menu Button is Clicked.');
-          },
-        ),
         actions: <Widget>[ // 1개 이상의 위젯리스트 생성
           IconButton(
             icon: Icon(Icons.shopping_cart), // shopping cart icon
@@ -44,6 +38,31 @@ class MyPage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: AssetImage('assets/Tyranitar.png'),
+              backgroundColor: Colors.blue[200],
+            ),
+                accountName: Text('Tyranitar'),
+                accountEmail: Text('tyranitar_248@pokemon.go'),
+                onDetailsPressed: () {
+                  print('arrow is clicked.');
+                },
+              decoration: BoxDecoration(
+                color: Colors.blue[200],
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40.0),
+                  bottomRight: Radius.circular(40.0)
+                )
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
