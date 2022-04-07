@@ -1,9 +1,10 @@
+import 'package:firebase_login/my_button/my_button.dart';
 import 'package:flutter/material.dart';
 
 class LogIn extends StatelessWidget {
-  const LogIn({Key? key}) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -15,11 +16,11 @@ class LogIn extends StatelessWidget {
         centerTitle: true,
         elevation: 0.2,
       ),
-      body: _buildButton(),
+      body: buildButton(),
     );
   }
 
-  Widget _buildButton() {
+  Widget buildButton() {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Column(
@@ -54,6 +55,18 @@ class LogIn extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
+
+          MyButton(
+            image: Image.asset('images/glogo.png'),
+            text: Text(
+              'Login with Google',
+              style: TextStyle(color: Colors.black87, fontSize: 15.0),
+            ),
+            color: Colors.white,
+            radius: 4.0,
+            onPressed: (){},
+          ),
+
           ButtonTheme(
             height: 50.0,
             child: RaisedButton(

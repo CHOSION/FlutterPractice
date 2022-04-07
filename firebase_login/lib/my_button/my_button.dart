@@ -1,9 +1,9 @@
+import 'package:firebase_login/login_app/login.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
-  const MyButton({Key? key}) : super(key: key);
 
-  MyButton({this.image, this.text, this.color, this.radius, this.onPressed});
+  MyButton({required this.image, required this.text, required this.color, required this.radius, required this.onPressed});
 
   final Widget image;
   final Widget text;
