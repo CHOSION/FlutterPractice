@@ -52,6 +52,7 @@ class LogIn extends StatelessWidget {
               ),
             ),
           ),
+
           SizedBox(
             height: 10.0,
           ),
@@ -65,6 +66,10 @@ class LogIn extends StatelessWidget {
             color: Colors.white,
             radius: 4.0,
             onPressed: (){},
+          ),
+
+          SizedBox(
+            height: 10.0,
           ),
 
           ButtonTheme(

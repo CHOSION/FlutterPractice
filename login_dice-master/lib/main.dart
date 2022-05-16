@@ -16,11 +16,12 @@ class MyApp extends StatelessWidget {
 
 class LogIn extends StatefulWidget {
   @override
-  State<LogIn> createState() => _LogInState();
+  _LogInState createState() => _LogInState();
 }
 
 class _LogInState extends State<LogIn> {
-  TextEditingController controller1 = TextEditingController();
+
+  TextEditingController controller = TextEditingController();
   TextEditingController controller2 = TextEditingController();
 
   @override
@@ -36,7 +37,7 @@ class _LogInState extends State<LogIn> {
         ],
       ),
       body: Builder(
-        builder: (context) {
+        builder:(context) {
           return GestureDetector(
             onTap: (){
               FocusScope.of(context).unfocus();
@@ -57,23 +58,27 @@ class _LogInState extends State<LogIn> {
                           data: ThemeData(
                               primaryColor: Colors.teal,
                               inputDecorationTheme: InputDecorationTheme(
-                                  labelStyle: TextStyle(
-                                      color: Colors.teal, fontSize: 15.0))),
+                                  labelStyle:
+                                  TextStyle(color: Colors.teal, fontSize: 15.0))),
                           child: Container(
+                            padding: EdgeInsets.all(40.0),
                             child: Column(
                               children: <Widget>[
                                 TextField(
-                                  controller: controller1,
+                                  controller: controller,
                                   decoration:
-                                      InputDecoration(labelText: 'Enter "dice"'),
+                                  InputDecoration(labelText: 'Enter "dice"'),
                                   keyboardType: TextInputType.emailAddress,
                                 ),
                                 TextField(
                                   controller: controller2,
-                                  decoration: InputDecoration(
-                                      labelText: 'Enter Password'),
+                                  decoration:
+                                  InputDecoration(labelText: 'Enter Password'),
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
+                                ),
+                                SizedBox(
+                                  height: 40.0,
                                 ),
                                 ButtonTheme(
                                     minWidth: 100.0,
@@ -86,23 +91,21 @@ class _LogInState extends State<LogIn> {
                                           size: 35.0,
                                         ),
                                         onPressed: () {
-                                          if (controller1.text == 'dice' &&
-                                              controller2.text == '1234') {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder:
-                                                        (BuildContext context) =>
-                                                            Dice()));
-                                          } else if (controller1.text == 'dice' &&
-                                              controller2.text != '1234') {
+
+                                          if(controller.text == 'dice' && controller2.text == '1234'){
+                                            Navigator.push(context,
+                                                MaterialPageRoute(builder: (BuildContext context)=>Dice()));
+                                          }else if(controller.text == 'dice' && controller2.text != '1234'){
                                             showSnackBar2(context);
-                                          } else if (controller1.text != 'dice' &&
-                                              controller2.text == '1234') {
+
+                                          }else if(controller.text != 'dice' && controller2.text == '1234'){
                                             showSnackBar3(context);
-                                          } else {
+
+                                          }else {
                                             showSnackBar(context);
+
                                           }
+
                                         })),
                               ],
                             ),
@@ -117,11 +120,11 @@ class _LogInState extends State<LogIn> {
   }
 }
 
-void showSnackBar(BuildContext context) {
+void showSnackBar(BuildContext context){
 
   Scaffold.of(context).showSnackBar(
       SnackBar(content:
-      Text('Wrong Login.',
+      Text('로그인 정보를 다시 확인하세요',
         textAlign: TextAlign.center,),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.blue,
@@ -129,11 +132,11 @@ void showSnackBar(BuildContext context) {
   );
 }
 
-void showSnackBar2(BuildContext context) {
+void showSnackBar2(BuildContext context){
 
   Scaffold.of(context).showSnackBar(
       SnackBar(content:
-      Text('Wrong Password.',
+      Text('비밀번호가 일치하지 않습니다',
         textAlign: TextAlign.center,),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.blue,
@@ -141,11 +144,11 @@ void showSnackBar2(BuildContext context) {
   );
 }
 
-void showSnackBar3(BuildContext context) {
+void showSnackBar3(BuildContext context){
 
   Scaffold.of(context).showSnackBar(
       SnackBar(content:
-      Text('Wrong Spelling.',
+      Text('dice의 철자를 확인하세요',
         textAlign: TextAlign.center,),
         duration: Duration(seconds: 2),
         backgroundColor: Colors.blue,
